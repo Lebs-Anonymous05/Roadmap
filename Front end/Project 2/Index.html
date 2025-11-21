@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<meta name="description" content="CV of a junior developer Chasieh.">
+<meta name="keywords" content="Frontend Dev, HTML, CSS, JavaScript, portfolio, resume"/>
+
+<!-- OG -->
+<meta property="og:title" content="Chasieh Hopkins - Frontend Developer CV"/>
+<meta property="og:description" content="A modern HTML CV."/>
+<meta property="og:type" content="website"/>
+
+<title>Chasieh Hopkins - CV</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a5568;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --border: #e2e8f0;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body:has(#mode-switch:checked) {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --accent: #60a5fa;
+    --accent-hover: #93c5fd;
+    --border: #334155;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.theme-toggle label {
+    cursor: pointer;
+    display: block;
+}
+
+#mode-switch {
+    display: none;
+}
+
+.toggle {
+    display: block;
+    width: 60px;
+    height: 30px;
+    background: var(--border);
+    border-radius: 30px;
+    position: relative;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.toggle::before {
+    content: '☀️';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background: var(--bg-primary);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+#mode-switch:checked + .toggle {
+    background: var(--accent);
+}
+
+#mode-switch:checked + .toggle::before {
+    content: '🌙';
+    transform: translateX(30px);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+header:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow);
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.role {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+address {
+    font-style: normal;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+address a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+address a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.navigation {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.navigation a {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--accent);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.navigation a:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+section {
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px var(--shadow);
+    border-left: 4px solid var(--accent);
+    transition: all 0.3s ease;
+}
+
+section:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px var(--shadow);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+section p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+section ul li {
+    padding: 0.7rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+section ul li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.links li {
+    padding: 0;
+}
+
+.links li::before {
+    display: none;
+}
+
+.links a {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.links a:hover {
+    background: var(--accent-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .role {
+        font-size: 1.2rem;
+    }
+
+    .navigation {
+        gap: 0.8rem;
+    }
+
+    .navigation a {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+    }
+}
+</style>
+</head>
+
+<body>
+    
+<!-- DARK MODE TOGGLE (Pure CSS) -->
+<div class="theme-toggle">
+    <label>
+        <input type="checkbox" id="mode-switch">
+        <span class="toggle"></span>
+    </label>
+</div>
+
+<div class="container">
+
+<header>
+    <h1>Chasieh Hopkins</h1>
+    <p class="role">Junior Frontend Developer</p>
+
+    <address>
+        Bokwai street, Buea<br>
+        (237) 680061497<br>
+        <a href="mailto:hchasieh@gmail.com">hchasieh@gmail.com</a>
+    </address>
+
+    <nav class="navigation">
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#internet">Links</a>
+    </nav>
+</header>
+
+<main>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Accessibility</li>
+        <li>Figma Design</li>
+        <li>Responsive Web Design</li>
+        <li>Technical Writing</li>
+        <li>Presentation</li>
+    </ul>
+</section>
+
+<section id="education">
+    <h2>Education</h2>
+    <h3>University of Buea – HND</h3>
+    <p>Sept 2023 – June 2025</p>
+    <ul>
+        <li>Basics of C++</li>
+        <li>Currency Converter</li>
+        <li>Frontend of Employee Management System</li>
+    </ul>
+</section>
+
+<section id="experience">
+    <h2>Experience</h2>
+    <h3>Dobre Technologies – Intern</h3>
+    <p>July 2024 – Sept 2024</p>
+    <ul>
+        <li>Researched collaboration tools</li>
+        <li>Built an employee management system</li>
+        <li>Improved HTML, CSS, JavaScript, PHP basics</li>
+    </ul>
+</section>
+
+<section id="internet">
+    <h2>Across the Internet</h2>
+    <ul class="links">
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">Portfolio</a></li>
+    </ul>
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 Chasieh Hopkins</p>
+</footer>
+
+</div>
+</body>
+</html>
